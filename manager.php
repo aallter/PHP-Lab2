@@ -1,6 +1,10 @@
 <?php
 session_start();
 include_once "lang.php";
+if($_SESSION['rol']!="manager"){
+		header('Location: 403.html');
+}
+
 if(isset($_SESSION["login"])){
 		if(isset($_POST['logout'])){	
 			unset($_SESSION['login']);
